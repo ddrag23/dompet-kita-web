@@ -8,6 +8,11 @@ export const useMenu = defineStore("menu", () => {
       title: "Home",
     },
     {
+      path: "/category",
+      icon: "HomeFilled",
+      title: "Kategori",
+    },
+    {
       path: "/transaksi",
       icon: "Memo",
       title: "Transaksi",

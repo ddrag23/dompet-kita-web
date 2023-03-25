@@ -27,6 +27,11 @@ const router = createRouter({
           component: () => import("@/views/user/UserView.vue"),
         },
         {
+          path: "/category",
+          name: "kategori",
+          component: () => import("@/views/category/IndexView.vue"),
+        },
+        {
           path: "/transaksi",
           name: "transaksi",
           meta: {
