@@ -23,6 +23,7 @@
     "devextreme": "22.2.4",
     "devextreme-vue": "22.2.4",
     "element-plus": "^2.2.30",
+    "moment": "^2.29.4",
     "pinia": "^2.0.28",
     "vue": "^3.2.45",
     "vue-chart-3": "^3.1.8",

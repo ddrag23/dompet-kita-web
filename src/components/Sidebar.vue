@@ -39,12 +39,12 @@ const { menu } = useMenu();
             <el-icon><component :is="item.icon" /></el-icon>
             <span>{{ item.title }}</span>
           </template>
-          <template v-for="(subMenu, i) in item.sub_menu" :key="i">
-            <el-menu-item
-              :index="subMenu.path"
-              @click="$emit('hiddenSidebar', false)"
-              >{{ subMenu.title }}</el-menu-item
-            >
+            <template v-for="(subMenu, i) in item.sub_menu" :key="i" >
+              <el-menu-item
+                :index="subMenu!.path"
+                @click="$emit('hiddenSidebar', false)"
+                >{{ subMenu!.title }}</el-menu-item
+              >
           </template>
         </el-sub-menu>
       </template>

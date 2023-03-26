@@ -36,28 +36,37 @@ const router = createRouter({
           component: () => import("@/views/category/IndexView.vue"),
         },
         {
-          path: "/transaksi",
-          name: "transaksi",
-          meta: {
-            title: "Transaksi",
-            breadcrumb: "Transaction Manajement",
+          path: "/transaction",
+          name: "transaction",
+          meta:{
+            title : 'Transaksi',
+            breadcrumb:'Transaksi'
           },
-          component: () => import("@/views/transaksi/IndexView.vue"),
-          children: [
-            {
-              path: "/transaksi/income",
-              name: "transaksi.income",
-              component: () =>
-                import("@/views/transaksi/income/IncomeView.vue"),
-            },
-            {
-              path: "/transaksi/outgoing",
-              name: "transaksi.outgoing",
-              component: () =>
-                import("@/views/transaksi/outgoing/OutgoingView.vue"),
-            },
-          ],
+          component: () => import("@/views/transaction/IndexView.vue"),
         },
+        // {
+        //   path: "/transaksi",
+        //   name: "transaksi",
+        //   meta: {
+        //     title: "Transaksi",
+        //     breadcrumb: "Transaction Manajement",
+        //   },
+        //   component: () => import("@/views/transaksi/IndexView.vue"),
+        //   children: [
+        //     {
+        //       path: "/transaksi/income",
+        //       name: "transaksi.income",
+        //       component: () =>
+        //         import("@/views/transaksi/income/IncomeView.vue"),
+        //     },
+        //     {
+        //       path: "/transaksi/outgoing",
+        //       name: "transaksi.outgoing",
+        //       component: () =>
+        //         import("@/views/transaksi/outgoing/OutgoingView.vue"),
+        //     },
+        //   ],
+        // },
       ],
     },
     {

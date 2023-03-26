@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 export const useMenu = defineStore("menu", () => {
-  const menu = [
+  const menu : any[] = [
     {
       path: "/",
       icon: "HomeFilled",
@@ -13,20 +13,26 @@ export const useMenu = defineStore("menu", () => {
       title: "Kategori",
     },
     {
-      path: "/transaksi",
+      path: "/transaction",
       icon: "Memo",
       title: "Transaksi",
-      sub_menu: [
-        {
-          path: "/transaksi/income",
-          title: "Transaksi Masuk",
-        },
-        {
-          path: "/transaksi/outgoing",
-          title: "Transaksi Keluar",
-        },
-      ],
+      sub_menu : undefined
     },
+    // {
+    //   path: "/transaksi",
+    //   icon: "Memo",
+    //   title: "Transaksi",
+    //   sub_menu: [
+    //     {
+    //       path: "/transaksi/income",
+    //       title: "Transaksi Masuk",
+    //     },
+    //     {
+    //       path: "/transaksi/outgoing",
+    //       title: "Transaksi Keluar",
+    //     },
+    //   ],
+    // },
   ];
   return { menu };
 });
