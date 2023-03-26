@@ -29,6 +29,10 @@ const router = createRouter({
         {
           path: "/category",
           name: "kategori",
+          meta:{
+            title : 'Kategori',
+            breadcrumb:'Kategori'
+          },
           component: () => import("@/views/category/IndexView.vue"),
         },
         {

@@ -9,7 +9,7 @@ export const useMenu = defineStore("menu", () => {
     },
     {
       path: "/category",
-      icon: "HomeFilled",
+      icon: "Tickets",
       title: "Kategori",
     },
     {
