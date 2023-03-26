@@ -6,6 +6,7 @@ import { ElNotification } from 'element-plus'
 export const useTransactionStore = defineStore("transaction", () => {
   const headers: Header[] = [
     { text: "Title", value: "title" },
+    { text: "Kategori", value: "category.category_name" },
     { text: "Nominal", value: "nominal" },
     { text: "Tanggal", value: "created_at" }
   ]
