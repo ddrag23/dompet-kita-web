@@ -5,7 +5,7 @@ import httpClient from '@/utils/http-client'
 import { ElNotification } from 'element-plus'
 export const useAuthStore = defineStore("auth", () => {
   const isLogin = ref(false);
-  const userLogin = JSON.parse(localStorage.getItem('user') ? localStorage.getItem('user') as string : '')
+  const userLogin = JSON.parse(!localStorage.getItem('user') ? localStorage.getItem('user') as string : '')
   async function login(credential: AuthRequest) {
     try {
       const response = await httpClient.post("/auth/login",credential)

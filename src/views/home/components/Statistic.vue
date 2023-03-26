@@ -6,10 +6,20 @@ import {
   Warning,
 } from "@element-plus/icons-vue";
 import StatisticCard from "@/components/StatisticCard.vue";
+import { onMounted } from "vue";
+import { useDashboardStore } from "@/stores/dashboard";
+
+const state = useDashboardStore();
+onMounted(async () => {
+  await state.loadNominalMonth();
+});
 </script>
 <template>
   <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
-    <StatisticCard title="Daily active users" :value="98500" />
+    <StatisticCard
+      title="Transaksi bulan ini"
+      :value="state.nominalThisMont as number"
+    />
     <StatisticCard title="MAU users" :value="98500" />
     <StatisticCard
       class="col-span-2 lg:col-span-1"
