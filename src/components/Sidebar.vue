@@ -10,7 +10,7 @@ const { menu } = useMenu();
       <h1
         class="text-xl md:text-2xl font-bold text-left pl-5 md:pl-0 md:text-center mt-5 mb-5"
       >
-        TW Admin
+        Dompet Kita
       </h1>
       <button
         class="text-black font-medium text-sm px-2.5 text-center inline-flex items-center mr-2 md:hidden"
