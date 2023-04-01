@@ -4,6 +4,7 @@ import { defineStore } from "pinia";
 
 export const useDashboardStore = defineStore("dashboard", () => {
     const nominalThisMont = ref<number>(0)
+    const pieChartData = ref<any[]>([])
     async function loadNominalMonth() {
         try {
             const {data} = await httpClient.get('/dashboard/total-transaction')
@@ -14,5 +15,14 @@ export const useDashboardStore = defineStore("dashboard", () => {
         }
     }
 
-    return { nominalThisMont, loadNominalMonth };
+    async function pieChartTransaction() {
+        try {
+            const {data} = await httpClient.get('/dashboard/total-transaction-pie-chart')
+            pieChartData.value = data
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+return { nominalThisMont, loadNominalMonth,pieChartTransaction,pieChartData };
 });

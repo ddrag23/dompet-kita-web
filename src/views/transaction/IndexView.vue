@@ -21,6 +21,7 @@ const rules = reactive<FormRules>({
   ],
 });
 const user = userState.userLogin;
+console.log(user)
 const form = reactive<any>({
   category_id: null,
   title: null,

@@ -1,39 +1,35 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { LineChart, useLineChart } from "vue-chart-3";
+import { computed, onMounted, reactive } from "vue";
+import { LineChart, useLineChart, DoughnutChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 import type { ChartData, ChartOptions } from "chart.js";
-
+import { useDashboardStore } from "@/stores/dashboard";
+import Table from './TableDetailChart.vue'
 Chart.register(...registerables);
-
-const testData = computed<ChartData<"line">>(() => ({
-  labels: ["Paris", "Nîmes", "Toulon", "Perpignan", "Autre"],
+const state = useDashboardStore();
+const donutChartData = computed<ChartData<"doughnut">>(() => ({
+  labels: state.pieChartData.map((item) => item.category_name),
   datasets: [
     {
-      data: [30, 40, 60, 70, 5],
+      data: state.pieChartData.map((item) => item.total_nominal),
       backgroundColor: ["#77CEFF", "#0079AF", "#123E6B", "#97B0C4", "#A5C8ED"],
     },
   ],
 }));
-const options = computed<ChartOptions<"doughnut">>(() => ({
-  plugins: {
-    legend: {
-      display: false,
-    },
-    title: {
-      display: true,
-      text: "Chart.js Line Chart",
-    },
-  },
-}));
-const { lineChartProps, lineChartRef } = useLineChart({
-  chartData: testData,
-  options,
+onMounted(async () => {
+  await state.pieChartTransaction();
+  console.log(state.pieChartData);
 });
 </script>
 <template>
-  <div class="card">
-    <LineChart v-bind="lineChartProps" />
+  <div class="grid grid-cols-2">
+    <div class="card">
+      <DoughnutChart :chartData="donutChartData" />
+    </div>
+    <div class="card">
+      <h5 class="mb-4">Detail Transaksi Berdasarkan Kategori</h5>
+      <Table/>
+    </div>
   </div>
 </template>
 <style>

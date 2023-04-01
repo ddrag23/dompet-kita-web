@@ -15,17 +15,12 @@ onMounted(async () => {
 });
 </script>
 <template>
-  <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+  <div class="grid grid-cols-2 gap-4">
     <StatisticCard
       title="Transaksi bulan ini"
       :value="state.nominalThisMont as number"
     />
-    <StatisticCard title="MAU users" :value="98500" />
-    <StatisticCard
-      class="col-span-2 lg:col-span-1"
-      title="Total User"
-      :value="98500"
-    />
+    <StatisticCard title="Gaji Perbulan" :value="4500000" />
   </div>
 </template>
 
