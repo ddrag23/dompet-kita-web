@@ -14,7 +14,7 @@ export const useTransactionStore = defineStore("transaction", () => {
     page: 1,
     rowsPerPage: 5,
     sortBy: 'created_at',
-    sortType: 'desc',
+    sortType: 'asc',
   });
   const loading = ref(false)
   const items = ref<Item[]>([])
