@@ -4,7 +4,7 @@ import { LineChart, useLineChart, DoughnutChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 import type { ChartData, ChartOptions } from "chart.js";
 import { useDashboardStore } from "@/stores/dashboard";
-import Table from './TableDetailChart.vue'
+import Table from "./TableDetailChart.vue";
 Chart.register(...registerables);
 const state = useDashboardStore();
 const donutChartData = computed<ChartData<"doughnut">>(() => ({
@@ -24,11 +24,17 @@ onMounted(async () => {
 <template>
   <div class="grid grid-cols-2">
     <div class="card">
-      <DoughnutChart :chartData="donutChartData" />
+      <DoughnutChart
+        :chartData="donutChartData"
+        v-if="state.pieChartData.length > 0"
+      />
+      <div v-else class="flex justify-center items-center">
+        Tidak ada data untuk ditampilkan
+      </div>
     </div>
     <div class="card">
       <h5 class="mb-4">Detail Transaksi Berdasarkan Kategori</h5>
-      <Table/>
+      <Table />
     </div>
   </div>
 </template>
